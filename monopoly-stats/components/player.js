@@ -105,3 +105,9 @@ for (var i = 0; i < 10; i++)
     playerSpot = 0;
     clearBoard();
 }
+
+export default 
+{
+    arrA, 
+    arrB
+}
