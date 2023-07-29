@@ -106,8 +106,6 @@ for (var i = 0; i < 10; i++)
     clearBoard();
 }
 
-export default 
-{
-    arrA, 
-    arrB
-}
+export default arrA;
+export { arrB };
+module.exports = { arrA, arrB }
