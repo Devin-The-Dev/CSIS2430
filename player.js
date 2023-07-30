@@ -4,8 +4,15 @@ let { playerSpot, turn }= require('./turn.js');
 
 let strategyB = false;
 
-let arrA = [];
-let arrB = [];
+let arrA1k = [];
+let arrA10k = [];
+let arrA100k = [];
+let arrA1m = [];
+
+let arrB1k = [];
+let arrB10k = [];
+let arrB100k = [];
+let arrB1m = [];
 
 // Strategy A
 for (var i = 0; i < 10; i++)
@@ -17,7 +24,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
     // Data/report is stored
-    arrA.push(displayData());
+    arrA1k.push(displayData());
 
     // Data is reset
     playerSpot = 0;
@@ -29,7 +36,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrA.push(displayData());
+    arrA10k.push(displayData());
 
     playerSpot = 0;
     clearBoard();
@@ -40,7 +47,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrA.push(displayData());
+    arrA100k.push(displayData());
 
     playerSpot = 0;
     clearBoard();
@@ -51,7 +58,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrA.push(displayData());
+    arrA1m.push(displayData());
 
     playerSpot = 0;
     clearBoard();
@@ -67,7 +74,7 @@ for (var i = 0; i < 10; i++)
         turn(strategyB);
     }
 
-    arrB.push(displayData());
+    arrB1k.push(displayData());
 
     playerSpot = 0;
     clearBoard();
@@ -78,7 +85,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrB.push(displayData());
+    arrB10k.push(displayData());
 
     playerSpot = 0;
     clearBoard();
@@ -89,7 +96,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrB.push(displayData());
+    arrB100k.push(displayData());
 
     playerSpot = 0;
     clearBoard();
@@ -100,12 +107,33 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrB.push(displayData());
+    arrB1m.push(displayData());
 
     playerSpot = 0;
     clearBoard();
 }
 
-export default arrA;
-export { arrB };
-module.exports = { arrA, arrB }
+// Convert arrays to JSON
+let jsonData = JSON.stringify(
+    {
+        a1k: arrA1k, 
+        a10k: arrA10k, 
+        a100k: arrA100k, 
+        a1m: arrA1m,
+        b1k: arrB1k,
+        b10k: arrB10k,
+        b100k: arrB100k,
+        b1m: arrB1m
+    }
+);
+
+// Use fetch to send the data from here to index.php
+fetch('index.php', 
+{
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: jsonData
+})
+.then(response => response.text())
+.then(data => console.log(data))
+.catch(error => console.error("Error: ", error));
