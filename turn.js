@@ -1,6 +1,8 @@
-const { board } = require('./board.js');
-const { roll } = require('./dice.js');
-const { newCC, newChance, communityChest, chance, draw } = require('./cards.js');
+#!/usr/bin/env node
+// This will be our main file
+// const { board } = require('./board.js');
+// const { roll } = require('./dice.js');
+// const { newCC, newChance, communityChest, chance, draw } = require('./cards.js');
 
 let playerSpot = 0;
 
