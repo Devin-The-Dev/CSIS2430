@@ -41,7 +41,7 @@ const chance =
 // In a normal game of Monopoly, cards are reshuffled once the deck is empty
 
 // Shuffling the Community Chest/Chance decks
-const shuffle = (deck) => 
+export function shuffle(deck) 
 {
     // Copy of Community Chest/Chance decks
     let CopyDeck = [...deck];
@@ -66,7 +66,7 @@ let newCC = shuffle(communityChest);
 let newChance = shuffle(chance);
 
 // Drawing a card from the shuffled deck
-let draw = (deck, masterDeck) => 
+export function draw(deck, masterDeck) 
 {
     // In case a deck is empty
     if (deck.length === 0)
@@ -81,11 +81,3 @@ let draw = (deck, masterDeck) =>
 draw(newCC, communityChest);
 draw(newChance, chance);
 
-module.exports = 
-{ 
-    newCC, 
-    newChance, 
-    communityChest, 
-    chance, 
-    draw 
-}

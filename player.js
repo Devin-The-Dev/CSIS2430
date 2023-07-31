@@ -1,6 +1,6 @@
 // This will be our main file
-const { clearBoard, displayData } = require('./board.js');
-let { playerSpot, turn }= require('./turn.js');
+import { clearBoard, displayData } from './board.js';
+import  { playerSpot, turn } from './turn.js';
 
 let strategyB = false;
 
@@ -113,27 +113,18 @@ for (var i = 0; i < 10; i++)
     clearBoard();
 }
 
-// Convert arrays to JSON
-let jsonData = JSON.stringify(
-    {
-        a1k: arrA1k, 
-        a10k: arrA10k, 
-        a100k: arrA100k, 
-        a1m: arrA1m,
-        b1k: arrB1k,
-        b10k: arrB10k,
-        b100k: arrB100k,
-        b1m: arrB1m
-    }
-);
-
-// Use fetch to send the data from here to index.php
-fetch('index.php', 
+const populateTable = (tableID, dataArray) =>
 {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json'},
-    body: jsonData
-})
-.then(response => response.text())
-.then(data => console.log(data))
-.catch(error => console.error("Error: ", error));
+    const table = document.getElementById(tableID);
+    dataArray.forEach(item => {
+        const row = table.insertRow();
+        const propertyCell = row.insertCell(0);
+        const countCell = row.insertCell(1);
+
+        propertyCell.textContent = item[0];
+        propertyCell.textContent = item[1];
+    });
+}
+
+populateTable('trategy', data1.a1k);
+populateTable('trategy', data1.b1k);
