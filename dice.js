@@ -1,14 +1,16 @@
 // Picking a random number between 1 and 6 (inclusive)
-export function dice()
+const dice = () => 
 {
     return Math.floor(Math.random() * 6) + 1;
 }
 
 // Rolling 2 dice
-export function roll()
+const roll = () => 
 {
     return [dice(), dice()];
 }
 roll();
+
+module.exports = { roll };
 
 // Re-rolls will be taken care of outside of this file because we need to know if we land on 'Go to Jail'

@@ -1,12 +1,12 @@
-import { board } from './board.js';
-import { roll } from './dice.js';
-import { newCC, newChance, communityChest, chance, draw } from './cards.js';
+const { board } = require('./board.js');
+const { roll } = require('./dice.js');
+const { newCC, newChance, communityChest, chance, draw } = require('./cards.js');
 
 let playerSpot = 0;
 
 // The players turn 
 // strategyB is used when the player is sent to jail
-export function turn(strategyB) 
+let turn = (strategyB) => 
 {
     // Variables used in the event of rolling doubles
     let doublesCount = 0;
@@ -234,3 +234,5 @@ export function turn(strategyB)
 }
 
 turn();
+
+module.exports = { playerSpot, turn }

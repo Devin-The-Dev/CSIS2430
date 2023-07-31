@@ -1,6 +1,6 @@
 // This will be our main file
-import { clearBoard, displayData } from './board.js';
-import  { playerSpot, turn } from './turn.js';
+const { clearBoard, displayData } = require('./board.js');
+let { playerSpot, turn } = require('./turn.js');
 
 let strategyB = false;
 
@@ -113,18 +113,18 @@ for (var i = 0; i < 10; i++)
     clearBoard();
 }
 
-const populateTable = (tableID, dataArray) =>
-{
-    const table = document.getElementById(tableID);
-    dataArray.forEach(item => {
-        const row = table.insertRow();
-        const propertyCell = row.insertCell(0);
-        const countCell = row.insertCell(1);
+// const populateTable = (tableID, dataArray) =>
+// {
+//     const table = document.getElementById(tableID);
+//     dataArray.forEach(item => {
+//         const row = table.insertRow();
+//         const propertyCell = row.insertCell(0);
+//         const countCell = row.insertCell(1);
 
-        propertyCell.textContent = item[0];
-        propertyCell.textContent = item[1];
-    });
-}
+//         propertyCell.textContent = item[0];
+//         propertyCell.textContent = item[1];
+//     });
+// }
 
-populateTable('trategy', data1.a1k);
-populateTable('trategy', data1.b1k);
+// populateTable('trategy', data1.a1k);
+// populateTable('trategy', data1.b1k);

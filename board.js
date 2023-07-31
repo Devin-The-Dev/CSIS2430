@@ -44,7 +44,7 @@ let board =
 ];
 
 // Clears the tallys on each space being landed on
-export function clearBoard()
+const clearBoard = () =>
 {
     for(var i = 0; i < board.length; i++) 
     {
@@ -54,7 +54,7 @@ export function clearBoard()
 clearBoard();
 
 // Returns Monopoly space name and number of times it's been landed on
-export function displayData() 
+const displayData = () =>
 {
     board.forEach(space => 
     {
@@ -64,3 +64,10 @@ export function displayData()
     console.log("=============================================");
 }
 displayData();
+
+module.exports = 
+{
+    board,
+    clearBoard, 
+    displayData
+}
