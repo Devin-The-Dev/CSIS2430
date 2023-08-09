@@ -1,19 +1,20 @@
 // This will be our main file
-// const { clearBoard, displayData } = require('./board.js');
-// let { playerSpot, turn } = require('./turn.js');
-
+// Variable to switch to Strategy B
 let strategyB = false;
 
+// Variables of Strategy A
 let arrA1k = [];
 let arrA10k = [];
 let arrA100k = [];
 let arrA1m = [];
 
+// Variables of Strategy B
 let arrB1k = [];
 let arrB10k = [];
 let arrB100k = [];
 let arrB1m = [];
 
+// The spot/property the player is on
 let playerSpot = 0;
 
 // 2D array for the Monopoly spaces and a numerical value to store number of times they've been landed on
@@ -178,7 +179,6 @@ const roll = () =>
     return [dice(), dice()];
 }
 roll();
-// Re-rolls will be taken care of outside of this file because we need to know if we land on 'Go to Jail'
 
 // The players turn 
 // strategyB is used when the player is sent to jail
@@ -194,7 +194,7 @@ let turn = (strategyB) =>
         // Rolling our dice
         let diceArr = roll();
 
-        // Booleans for "Get OUt of Jail Free" cards
+        // Booleans for "Get Out of Jail Free" cards
         let freeJailCC = false;
         let freeJailChance = false;
 
