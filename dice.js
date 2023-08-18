@@ -11,4 +11,4 @@ const roll = () =>
 }
 roll();
 
-module.exports = { roll }
+module.exports = { roll };

@@ -1,6 +1,9 @@
-const { board, clearBoard, displayData } = require('./board.js');
+
+document.getElementById("test").innerHTML = "Hello World!";
+
+const { board, clearBoard, displayData } =  require('./board.js');
 const { communityChest, chance, newCC, newChance, draw } = require('./cards.js');
-const { roll } = require ('./dice.js');
+const { roll } = require('./dice.js');
 
 // This will be our main file
 // Variable to switch to Strategy B
@@ -379,6 +382,7 @@ for (var i = 0; i < 10; i++)
 
     arrB1m.push(displayData());
 }
+
 
 // updateStrategyATable(arrA1k);
 // updateStrategyATable(arrA10k);
