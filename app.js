@@ -2,29 +2,17 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const { roll } = require('./dice.js');
+
+// Arrays to display
 const { arrA1k } = require('./player.js');
 
-const itemArr = arrA1k.map(item => `<p>${item}</p>`).join('');
-
-app.get('/', (req, res) => {
-    const html =
+const aDataSets = arrA1k.map(item => 
     `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Monopoly Stats</title>
-    </head>
-    <body>
-        <h1>Monopoly Stats</h1>
         <div id="strategyA">
-            <h2>Strategy A</h2>
             <table>
                 <thead>
                     <tr>
-                        <th></th> <!--Blank for properties down below-->
+                        <th></th> <!--Blank for properties column down below-->
                         <th colspan="2">n = 1,000</th>
                         <th colspan="2">n = 10,000</th>
                         <th colspan="2">n = 100,000</th>
@@ -46,12 +34,31 @@ app.get('/', (req, res) => {
                 <tbody id="table-body">
                     <!-- How do I loop these? -->
                     <tr>
-                        <td>Baltic Avenue</td>
+                        <!-- There are 10 results... that represents the number of data sets -->
+                        <!-- So itemArr[0] should show the first data set for Strategy A: 1k Turns -->
+                        <!-- May need to do a nested for-loop -->
+                        <td>${item[0]}</td>
                         <td>0</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    `).join('');
+
+app.get('/', (req, res) => {
+    const html =
+    `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Monopoly Stats</title>
+    </head>
+    <body>
+        <h1>Monopoly Stats</h1>
+        <h2>Strategy A</h2>
+            ${aDataSets}
         <div id="strategyB">
             <h2>Strategy B</h2>
             <table>
@@ -74,12 +81,6 @@ app.get('/', (req, res) => {
                     <td>Percentage</td>
                 </tr>
             </table>
-        </div>
-        <div>
-            ${roll()}
-        </div>
-        <div>
-            ${itemArr} 
         </div>
     </body>
     </html>

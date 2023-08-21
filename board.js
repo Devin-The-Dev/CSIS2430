@@ -59,7 +59,7 @@ const dataSet = () =>
     board.forEach(space => 
     {
         console.log(space);
-        return space;
+        return space.toString();
     });
     console.log("=============================================");
 }
