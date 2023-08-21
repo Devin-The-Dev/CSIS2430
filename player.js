@@ -1,7 +1,4 @@
-
-document.getElementById("test").innerHTML = "Hello World!";
-
-const { board, clearBoard, displayData } =  require('./board.js');
+const { board, clearBoard, dataSet } =  require('./board.js');
 const { communityChest, chance, newCC, newChance, draw } = require('./cards.js');
 const { roll } = require('./dice.js');
 
@@ -255,30 +252,6 @@ let turn = (strategyB) =>
 
 turn();
 
-// Function to update the data for Strategy A
-const updateStrategyATable = (dataArr) => {
-    const table = document.querySelector('#strategyA table');
-    for (let i = 0; i < dataArr.length; i++) {
-      const row = table.insertRow(i + 2); // Start inserting rows from the third row
-      for (let j = 0; j < dataArr[i].length; j++) {
-        const cell = row.insertCell(j);
-        cell.textContent = dataArr[i][j];
-      }
-    }
-  };
-  
-  // Function to update the data for Strategy B
-  const updateStrategyBTable = (dataArr) => {
-    const table = document.querySelector('#strategyB table');
-    for (let i = 0; i < dataArr.length; i++) {
-      const row = table.insertRow(i + 2); // Start inserting rows from the third row
-      for (let j = 0; j < dataArr[i].length; j++) {
-        const cell = row.insertCell(j);
-        cell.textContent = dataArr[i][j];
-      }
-    }
-  };
-
 // Strategy A
 for (var i = 0; i < 10; i++)
 {
@@ -291,7 +264,7 @@ for (var i = 0; i < 10; i++)
     }
 
     // Data/report is stored
-    arrA1k.push(displayData());
+    arrA1k.push(dataSet());
 
     // Data is reset
     playerSpot = 0;
@@ -303,7 +276,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrA10k.push(displayData());
+    arrA10k.push(dataSet());
 
     playerSpot = 0;
     clearBoard();
@@ -314,7 +287,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrA100k.push(displayData());
+    arrA100k.push(dataSet());
 
     playerSpot = 0;
     clearBoard();
@@ -325,7 +298,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrA1m.push(displayData());
+    arrA1m.push(dataSet());
 
     playerSpot = 0;
     clearBoard();
@@ -344,7 +317,7 @@ for (var i = 0; i < 10; i++)
         turn(strategyB);
     }
 
-    arrB1k.push(displayData());
+    arrB1k.push(dataSet());
 
     playerSpot = 0;
     clearBoard();
@@ -356,7 +329,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrB10k.push(displayData());
+    arrB10k.push(dataSet());
 
     playerSpot = 0;
     clearBoard();
@@ -368,7 +341,7 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrB100k.push(displayData());
+    arrB100k.push(dataSet());
 
     playerSpot = 0;
     clearBoard();
@@ -380,16 +353,18 @@ for (var i = 0; i < 10; i++)
         turn();
     }
 
-    arrB1m.push(displayData());
+    arrB1m.push(dataSet());
 }
+// console.log(arrA1k[0]);
 
+module.exports = {
+    arrA1k,
+    // arrA10k,
+    // arrA100k,
+    // arrA1m,
 
-// updateStrategyATable(arrA1k);
-// updateStrategyATable(arrA10k);
-// updateStrategyATable(arrA100k);
-// updateStrategyATable(arrA1m);
-
-// updateStrategyBTable(arrB1k);
-// updateStrategyBTable(arrB10k);
-// updateStrategyBTable(arrB100k);
-// updateStrategyBTable(arrB1m);
+    // arrB1k,
+    // arrB10k,
+    // arrB100k,
+    // arrB1m
+}

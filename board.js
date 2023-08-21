@@ -53,7 +53,7 @@ const clearBoard = () =>
 clearBoard();
 
 // Returns Monopoly space name and number of times it's been landed on
-const displayData = () =>
+const dataSet = () =>
 {
     // When creating the percentages, make sure to select space[1]
     board.forEach(space => 
@@ -63,6 +63,6 @@ const displayData = () =>
     });
     console.log("=============================================");
 }
-displayData();
+dataSet();
 
-module.exports = { board, clearBoard, displayData };
+module.exports = { board, clearBoard, dataSet };
