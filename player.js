@@ -7,7 +7,7 @@ const { roll } = require('./dice.js');
 let strategyB = false;
 
 // Variables of Strategy A
-let arrA1k = [];
+// let arrA1k = [];
 let arrA10k = [];
 let arrA100k = [];
 let arrA1m = [];
@@ -253,112 +253,113 @@ let turn = (strategyB) =>
 turn();
 
 // Strategy A
-for (var i = 0; i < 10; i++)
-{
-    console.log(`Strategy A - ${i}`);
+// for (var i = 0; i < 10; i++)
+// {
+//     console.log(`Strategy A - ${i}`);
     // 1 thousand turns
     for (var j = 0; j < 1000; j++)
     {
         // The players turn
         turn();
     }
+    // let arrA1k = [];
+    // arrA1k.push(dataSet());
+    // console.log(arrTest);
+//     // Data/report is stored
+//     arrA1k.push(dataSet());
 
-    // Data/report is stored
-    arrA1k.push(dataSet());
+//     // Data is reset
+    // playerSpot = 0;
+    // clearBoard();
 
-    // Data is reset
-    playerSpot = 0;
-    clearBoard();
+//     // 10 thousand turns
+//     for (var j = 0; j < 10000; j++)
+//     {
+//         turn();
+//     }
 
-    // 10 thousand turns
-    for (var j = 0; j < 10000; j++)
-    {
-        turn();
-    }
+//     arrA10k.push(dataSet());
 
-    arrA10k.push(dataSet());
+//     playerSpot = 0;
+//     clearBoard();
 
-    playerSpot = 0;
-    clearBoard();
+//     // 100 thousand turns
+//     for (var j = 0; j < 100000; j++)
+//     {
+//         turn();
+//     }
 
-    // 100 thousand turns
-    for (var j = 0; j < 100000; j++)
-    {
-        turn();
-    }
+//     arrA100k.push(dataSet());
 
-    arrA100k.push(dataSet());
+//     playerSpot = 0;
+//     clearBoard();
 
-    playerSpot = 0;
-    clearBoard();
+//     // 1 million turns
+//     for (var j = 0; j < 1000000; j++)
+//     {
+//         turn();
+//     }
 
-    // 1 million turns
-    for (var j = 0; j < 1000000; j++)
-    {
-        turn();
-    }
+//     arrA1m.push(dataSet());
 
-    arrA1m.push(dataSet());
-
-    playerSpot = 0;
-    clearBoard();
-}
+//     playerSpot = 0;
+//     clearBoard();
+// }
 
 // Strategy B
-strategyB = true;
-for (var i = 0; i < 10; i++)
-{
-    console.log(`Strategy B - ${i + 1}`);
-    console.log("=============================================");
-    // 1 thousand turns
-    console.log("1,000 turns");
-    for (var j = 0; j < 1000; j++)
-    {
-        turn(strategyB);
-    }
+// strategyB = true;
+// for (var i = 0; i < 10; i++)
+// {
+//     console.log(`Strategy B - ${i + 1}`);
+//     console.log("=============================================");
+//     // 1 thousand turns
+//     console.log("1,000 turns");
+//     for (var j = 0; j < 1000; j++)
+//     {
+//         turn(strategyB);
+//     }
 
-    arrB1k.push(dataSet());
+//     arrB1k.push(dataSet());
 
-    playerSpot = 0;
-    clearBoard();
+//     playerSpot = 0;
+//     clearBoard();
 
-    // 10 thousand turns
-    console.log("10,000 turns");
-    for (var j = 0; j < 10000; j++)
-    {
-        turn();
-    }
+//     // 10 thousand turns
+//     console.log("10,000 turns");
+//     for (var j = 0; j < 10000; j++)
+//     {
+//         turn();
+//     }
 
-    arrB10k.push(dataSet());
+//     arrB10k.push(dataSet());
 
-    playerSpot = 0;
-    clearBoard();
+//     playerSpot = 0;
+//     clearBoard();
 
-    // 100 thousand turns
-    console.log("100,000 turns");
-    for (var j = 0; j < 100000; j++)
-    {
-        turn();
-    }
+//     // 100 thousand turns
+//     console.log("100,000 turns");
+//     for (var j = 0; j < 100000; j++)
+//     {
+//         turn();
+//     }
 
-    arrB100k.push(dataSet());
+//     arrB100k.push(dataSet());
 
-    playerSpot = 0;
-    clearBoard();
+//     playerSpot = 0;
+//     clearBoard();
 
-    // 1 million turns
-    console.log("1,000,000 turns");
-    for (var j = 0; j < 1000000; j++)
-    {
-        turn();
-    }
+//     // 1 million turns
+//     console.log("1,000,000 turns");
+//     for (var j = 0; j < 1000000; j++)
+//     {
+//         turn();
+//     }
 
-    arrB1m.push(dataSet());
-}
-// console.log(arrA1k[0]);
+//     arrB1m.push(dataSet());
+// }
 
 module.exports = {
-    arrA1k,
+    // arrA1k,
     // arrA10k,
     // arrA100k,
     // arrA1m,

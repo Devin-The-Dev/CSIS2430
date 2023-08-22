@@ -1,3 +1,5 @@
+var arrTest = [];
+
 // 2D array for the Monopoly spaces and a numerical value to store number of times they've been landed on
 let board = 
 [
@@ -53,16 +55,18 @@ const clearBoard = () =>
 clearBoard();
 
 // Returns Monopoly space name and number of times it's been landed on
-const dataSet = () =>
+const dataSet = (data = []) =>
 {
     // When creating the percentages, make sure to select space[1]
+    // I need to find a way to push this array to a variable. It needs to be saved
     board.forEach(space => 
     {
-        console.log(space);
-        return space.toString();
+        // console.log(space);
+        data.push(space);
     });
-    console.log("=============================================");
+    // console.log("=============================================");
 }
 dataSet();
+console.log(dataSet(arrTest));
 
-module.exports = { board, clearBoard, dataSet };
+module.exports = { board, arrTest, clearBoard, dataSet };
