@@ -4,12 +4,12 @@ const app = express();
 const port = 3000;
 
 // Arrays to display
-const { board , arrTest} = require('./board.js');
-const { arrA1k } = require('./player.js');
+const { board } = require('./simulation.js');
 
 // I may need to refactor this into a nested for-loop
 // Maybe not... I think if I do some more work in board.js or player.js, I'll be done
-const aDataSets = arrTest.map(item => 
+
+const aDataSets = board.map(item => 
 `
     <tr style="background-color: rgba(150, 212, 212, 0.4)">
         <td>${item[0]}</td>
@@ -23,23 +23,7 @@ const aDataSets = arrTest.map(item =>
         <td></td>
     </tr>
                 
-`).join('');
-
-const bDataSets = board.map(element => 
-    `
-        <tr style="background-color: rgba(150, 212, 212, 0.4)">
-            <td>${element[0]}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>${element[1]}</td>
-            <td>${((element[1]/1000000) * 100).toFixed(2)}</td>
-        </tr>
-                    
-    `).join('');
+`).join(``);
 
 app.get('/', (req, res) => {
     const html =
@@ -83,39 +67,6 @@ app.get('/', (req, res) => {
                     <!-- So itemArr[0] should show the first data set for Strategy A: 1k Turns -->
                     <!-- May need to do a nested for-loop -->
                     ${aDataSets}
-                </tbody>
-            </table>
-        </div>
-        <h2>Strategy B</h2>
-        <div id="strategyB">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th> <!--Blank for properties column down below-->
-                        <th colspan="2">n = 1,000</th>
-                        <th colspan="2">n = 10,000</th>
-                        <th colspan="2">n = 100,000</th>
-                        <th colspan="2">n = 1,000,000</th>
-                    </tr>
-                
-                    <tr>
-                        <td>Properties</td>
-                        <td>Count</td>
-                        <td>Percentage</td>
-                        <td>Count</td>
-                        <td>Percentage</td>
-                        <td>Count</td>
-                        <td>Percentage</td>
-                        <td>Count</td>
-                        <td>Percentage</td>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- How do I loop these? -->
-                    <!-- There are 10 results... that represents the number of data sets -->
-                    <!-- So itemArr[0] should show the first data set for Strategy A: 1k Turns -->
-                    <!-- May need to do a nested for-loop -->
-                    ${bDataSets}
                 </tbody>
             </table>
         </div>
