@@ -1,53 +1,8 @@
-const reports = 10;
-const turns = [1000, 10000, 100000, 1000000];
-// ======================================================================================================================================================
-// board.js
-// All the manipulation outputs to here
-const board = 
-[
-    ["Go", 0],
-    ["Meditaranean Avenue", 0],
-    ["Community Chest #1", 0],
-    ["Baltic Avenue", 0],
-    ["Income Tax", 0],
-    ["Reading Railroad", 0],
-    ["Oriental Avenue", 0],
-    ["Chance #1", 0],
-    ["Vermont Avenue", 0],
-    ["Connecticut Avenue", 0],
-    ["Jail", 0],
-    ["St. Charles Place", 0],
-    ["Electric Company", 0],
-    ["States Avenue", 0],
-    ["Virginia Avenue", 0],
-    ["Pennsylvania Railroad", 0],
-    ["St. James Place", 0],
-    ["Community Chest #2", 0],
-    ["Tennessee Avenue", 0],
-    ["New York Avenue", 0],
-    ["Free Parking", 0],
-    ["Kentucky Avenue", 0],
-    ["Chance #2", 0],
-    ["Indiana Avenue", 0],
-    ["Illinois Avenue", 0],
-    ["B. & O. Railroad", 0],
-    ["Atlantic Avenue", 0],
-    ["Ventnor Avenue", 0],
-    ["Water Works", 0],
-    ["Marvin Gardens", 0],
-    ["Go To Jail", 0],
-    ["Pacific Avenue", 0],
-    ["North Carolina Avenue", 0],
-    ["Community Chest #3", 0],
-    ["Pennsylvania Avenue", 0],
-    ["Short Line Railroad", 0],
-    ["Chance #3", 0],
-    ["Park Place", 0],
-    ["Luxury Tax", 0],
-    ["Boardwalk", 0]
-];
+let { board, boardIndex } = require('./board.js');
 
-let boardIndex = 0;
+// Variables needed to create the 80 sets of data
+// const reports = 10;
+// const turns = [1000, 10000, 100000, 1000000];
 // ======================================================================================================================================================
 // cards.js
 const communityChest = 
@@ -112,119 +67,6 @@ const shuffle = (deck) =>
     return shuffledDeck;
 }
 
-const drawCard = (deck, masterDeck) => {
-    
-    // In case a deck is empty
-    if (deck.length === 0)
-    {
-        deck.push(...masterDeck);
-        deck = shuffle(deck);
-    }
-
-    return deck.pop();
-}
-
-let shuffledCC = shuffle(communityChest);
-let shuffledChance = shuffle(chance);
-
-drawCard(shuffledCC, communityChest);
-drawCard(shuffledChance, chance);
-// ======================================================================================================================================================
-// dice.js
-let doublesCount = 0;
-
-const rollDice = () => {
-    const dice1 = Math.floor(Math.random() * 6) + 1;
-    const dice2 = Math.floor(Math.random() * 6) + 1;
-    const doubles = dice1 === dice2;
-
-    if(doubles){
-        doublesCount++;
-    } else{
-        doublesCount = 0;
-    }
-
-    return [dice1 + dice2, doubles];
-}
-
-const dice = rollDice();
-console.log(dice);
-
-const move = (roll, index) => {
-    index = (index + roll) % board.length;
-    board[index][1]++;
-}
-move(dice[0], boardIndex)
-console.log(board);
-console.log(`Doubles Count: ${doublesCount}`);
-// ======================================================================================================================================================
-// jail.js
-// 'Get Out of Jail Free' cards only apply to Strategy B
-let strategyB = false;
-let jailFree = false;
-
-const jail = () => {
-    if (strategyB && !jailFree){
-        let jailCount = 0;
-
-        // Make sure you find a way to increment a turn if still in the do-while loop
-        do
-        {
-            console.log(`Before Jail roll: ${jailCount}`);
-
-            let jailDoubles = rollDice();
-            jailCount++;
-            console.log(`Jail Doubles: ${jailDoubles[1]}`); 
-
-            if(jailDoubles[1]){
-                jailCount = 3;
-            }
-
-            console.log("Go To Jail");
-            boardIndex = 10;
-            board[boardIndex][1]++;
-            console.log(`After Jail roll: ${jailCount}`); 
-            console.log(`=============================`);
-        } while (jailCount < 3)
-    } else {
-        console.log("Go To Jail");
-        boardIndex = 10;
-        board[boardIndex][1]++;
-    }
-};
-
-if  
-( 
-    doublesCount === 3 || 
-    boardIndex === 30 ||
-    // This is for testing purposes. This parameter will be moved to a switch statement in cards.js
-    (boardIndex === 2 && drawCard() === communityChest[5]) 
-)
-{
-    jail();
-}
-
-// Community Chest switch statement
-// This could be condensed to one switch statement by using a function
-switch (drawCard(shuffledCC, communityChest)) {
-    case "Advance to Go (Collect $200)":
-        boardIndex = 0;
-        board[boardIndex][1]++;
-        break;
-
-    case "Get Out of Jail Free":
-        jailFree = true;
-        break;    
-    
-    case "Go to Jail. Go directly to Jail, do not pass Go, do not collect $200":
-        jail();
-        break;
-
-}
-
-let rr = [5, 15, 25, 35];
-let utilities = [12, 28];
-
 const nearest = (arr, bIndex) => {
     // Value set to 40 for setting the minimum value later
     let min = 40;
@@ -242,89 +84,207 @@ const nearest = (arr, bIndex) => {
     return placement;
 }
 
-// Chance switch statement
-switch (drawCard(shuffledChance, chance)) {
-    case "Advance to Boardwalk":
-        boardIndex = 39;
-        board[boardIndex][1]++;
-        break;
-
-    case "Advance to Go (Collect $200)":
-        boardIndex = 0;
-        board[boardIndex][1]++;
-        break;
-
-    case "Advance to Illinois Avenue. If you pass Go, collect $200":
-        boardIndex = 24; 
-        board[playerboardIndexSpot][1]++;
-        break;
-
-    case "Advance to St. Charles Avenue. If you pass Go, collect $200":
-        boardIndex = 11; 
-        board[boardIndex][1]++;
-        break;
-
-    case "Advance to St. Charles Avenue. If you pass Go, collect $200":
-        boardIndex = 11; 
-        board[boardIndex][1]++;
-        break;
-
-    case "Advance to the nearest Railroad. If unowned, you may buy it from the Bank. If owned, pay wonder twice the rental to which they are otherwise entitled":
-        boardIndex = nearest(rr, boardIndex); 
-        board[boardIndex][1]++;
-        break;
+const drawCard = (deck, masterDeck) => {
     
-    case "Get Out of Jail Free":
-        freeJailChance = true;
-        break;
+    // In case a deck is empty
+    if (deck.length === 0)
+    {
+        deck.push(...masterDeck);
+        deck = shuffle(deck);
+    }
 
-    case "Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times amount thrown.":
-        boardIndex = nearest(utilities, boardIndex); 
-        board[boardIndex][1]++;
-        break;
+    let rr = [5, 15, 25, 35];
+    let utilities = [12, 28];
 
-    case "Go Back 3 Spaces":
-        boardIndex -= 3; 
-        board[boardIndex][1]++;
-        break;
+    // Switch statement for all cards results
+    switch (deck.pop()) 
+    {
+        case "Advance to Boardwalk":
+            boardIndex = 39;
+            board[boardIndex][1]++;
+            break;
 
-    case "Go to Jail. Go directly to Jail, do not pass Go, do not collect $200":
-        jail();
-        break;
+        case "Advance to Go (Collect $200)":
+            boardIndex = 0;
+            board[boardIndex][1]++;
+            break;
 
-    case "Take a trip to Reading Railroad. If you pass Go, collect $200":
-        boardIndex = 5; 
-        board[boardIndex][1]++;
-        break;
+        case "Advance to Illinois Avenue. If you pass Go, collect $200":
+            boardIndex = 24; 
+            board[boardIndex][1]++;
+            break;
 
-    default:
-        break;
+        case "Advance to St. Charles Avenue. If you pass Go, collect $200":
+            boardIndex = 11; 
+            board[boardIndex][1]++;
+            break;
+
+        case "Advance to St. Charles Avenue. If you pass Go, collect $200":
+            boardIndex = 11; 
+            board[boardIndex][1]++;
+            break;
+
+        case "Advance to the nearest Railroad. If unowned, you may buy it from the Bank. If owned, pay wonder twice the rental to which they are otherwise entitled":
+            boardIndex = nearest(rr, boardIndex); 
+            board[boardIndex][1]++;
+            break;
+        
+        case "Get Out of Jail Free":
+            freeJailChance = true;
+            break;
+
+        case "Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times amount thrown.":
+            boardIndex = nearest(utilities, boardIndex); 
+            board[boardIndex][1]++;
+            break;
+
+        case "Go Back 3 Spaces":
+            boardIndex = boardIndex - 3; 
+            board[boardIndex][1]++;
+            break;
+
+        case "Go to Jail. Go directly to Jail, do not pass Go, do not collect $200":
+            jail();
+            break;
+
+        case "Take a trip to Reading Railroad. If you pass Go, collect $200":
+            boardIndex = 5; 
+            board[boardIndex][1]++;
+            break;
+
+        default:
+            break;
+    }
+}
+
+let shuffledCC = shuffle(communityChest);
+let shuffledChance = shuffle(chance);
+
+// ======================================================================================================================================================
+// dice.js
+let doublesCount = 0;
+
+// Rolling the dice
+// Returns dice total and if it was doubles
+const rollDice = () => {
+    const dice1 = Math.floor(Math.random() * 6) + 1;
+    const dice2 = Math.floor(Math.random() * 6) + 1;
+    const doubles = dice1 === dice2;
+
+    if(doubles){
+        doublesCount++;
+    } else {
+        doublesCount = 0;
+    }
+
+    return [dice1 + dice2, doubles];
+}
+
+// Move token along board
+const move = (roll, index) => {
+    // index isn't saved outside the scope
+    boardIndex = (index + roll) % board.length;
+    board[index][1]++;
 }
 // ======================================================================================================================================================
+// jail.js
+// 'Get Out of Jail Free' cards only apply to Strategy B
+let strategyB = false;
+let jailFree = false;
+
+const jail = () => {
+    if (strategyB && !jailFree){
+        let jailCount = 0;
+
+        // Make sure you find a way to increment a turn if still in the do-while loop
+        do
+        {
+            // console.log(`Before Jail roll: ${jailCount}`);
+
+            let jailDoubles = rollDice();
+            jailCount++;
+            // console.log(`Jail Doubles: ${jailDoubles[1]}`); 
+
+            if(jailDoubles[1]){
+                jailCount = 3;
+            }
+
+            // console.log("Go To Jail");
+            boardIndex = 10;
+            board[boardIndex][1]++;
+            // console.log(`After Jail roll: ${jailCount}`); 
+            // console.log(`=============================`);
+        } while (jailCount < 3)
+    } else {
+        // console.log("Go To Jail");
+        boardIndex = 10;
+        board[boardIndex][1]++;
+    }
+};
+// ======================================================================================================================================================
 // turn.js
-// function simulateTurn() {
-//     const diceTotal = rollDice();
+function simulateTurn() {
+    let turns = 1000;
+    for (var i = 0; i < turns; i++ ){
+        // This variable isn't updating
+        let dice = rollDice();
 
+        do
+        {
+            if  ( doublesCount === 3 || boardIndex === 30 )
+            {
+                if(boardIndex === 30){
+                    board[boardIndex][1]++;
+                }
+                // console.log("*3 doubles*");
+                jail();
+            } 
+            else 
+            {
+                move(dice[0], boardIndex);
+            }
 
-// }
+            // If landed on Community Chest, draw a card from that deck
+            if (boardIndex === 2 || boardIndex === 17, boardIndex === 33)
+            {
+                drawCard(shuffledCC, communityChest);
+            } 
+            // If landed on Chance, draw a card from that deck
+            else if (boardIndex === 7 || boardIndex === 22 || boardIndex === 36)
+            {
+                drawCard(shuffledChance, chance);
+            }
 
-// const simulateGame = (strategy) => {
+            // console.log(`Turn ${i}: ${board[boardIndex][0]}`);
 
+            // This will update out dice outside the d0-while loop
+            dice = rollDice();
+        } while (dice[1])
+    }
 
-// }
+    for (var i = 0; i < board.length; i++){
+        console.log(board[i][0], board[i][1], (board[i][1]/turns * 100).toFixed(2));
+    }
+}
+simulateTurn();
 
-// const runSimulations = (strategy) => {
-//     for (const numTurns of turns) {
+let tests = ["A", "B"];
+let turnTable = [1000, 10000, 100000, 1000000];
 
-//     }
+// Strategies A and B
+for(var i = 0; i < tests.length; i++){
+    console.log(`Strategy: ${tests[i]}`);
+    console.log('--------------');
+    // The datasets (turns)
+    for (var j = 0; j < turnTable.length; j++){
+        console.log(`Dataset: ${turnTable[j]} Turns`);
+        // The trials
+        for (var k = 0; k < 10; k++) {
+            console.log(`Trial: ${k}`);
+        }
+        console.log('==============');
+    }
+}
 
-//     for (let i = 0; i < reports; i++) {
-
-
-//     }
-// }
-
-// runSimulations("Strategy A");
-// runSumilations("Strategy B");
-
+// This will be used to move our data set to the front end. (The varables won't be 'board')
 module.exports = { board };

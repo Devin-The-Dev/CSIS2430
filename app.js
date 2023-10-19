@@ -4,11 +4,11 @@ const app = express();
 const port = 3000;
 
 // Arrays to display
-const { board } = require('./simulation.js');
+const { board } = require('./board.js');
 
 // I may need to refactor this into a nested for-loop
 // Maybe not... I think if I do some more work in board.js or player.js, I'll be done
-
+// array[]
 const aDataSets = board.map(item => 
 `
     <tr style="background-color: rgba(150, 212, 212, 0.4)">
