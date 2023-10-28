@@ -223,8 +223,7 @@ const jail = () => {
 };
 // ======================================================================================================================================================
 // turn.js
-function simulateTurn() {
-    let turns = 1000;
+function simulateTurn(turns) {
     for (var i = 0; i < turns; i++ ){
         // This variable isn't updating
         let dice = rollDice();
@@ -262,29 +261,41 @@ function simulateTurn() {
         } while (dice[1])
     }
 
-    for (var i = 0; i < board.length; i++){
-        console.log(board[i][0], board[i][1], (board[i][1]/turns * 100).toFixed(2));
-    }
+    // for (var i = 0; i < board.length; i++){
+    //     console.log(board[i][0], board[i][1], (board[i][1]/turns * 100).toFixed(2));
+    // }
+
+    return board;
+
 }
-simulateTurn();
 
 let tests = ["A", "B"];
-let turnTable = [1000, 10000, 100000, 1000000];
+let turnNumber = [1000, 10000, 100000, 1000000];
+let placeholder = simulateTurn(turnNumber[0]);
 
-// Strategies A and B
-for(var i = 0; i < tests.length; i++){
-    console.log(`Strategy: ${tests[i]}`);
-    console.log('--------------');
-    // The datasets (turns)
-    for (var j = 0; j < turnTable.length; j++){
-        console.log(`Dataset: ${turnTable[j]} Turns`);
-        // The trials
-        for (var k = 0; k < 10; k++) {
-            console.log(`Trial: ${k}`);
-        }
-        console.log('==============');
-    }
+for (var i = 0; i < board.length; i++) {
+    console.log(placeholder[i][0], placeholder[i][1], (placeholder[i][1]/turnNumber[0] * 100).toFixed(2));
 }
+
+// This is temporary. The for-loop using this will use a literal 10 instead
+// let reports = 10;
+
+// // Strategies A and B
+// for(var i = 0; i < tests.length; i++){
+//     console.log(`Strategy: ${tests[i]}`);
+//     console.log('--------------');
+//     // The datasets (turns)
+//     for (var j = 0; j < turnNumber.length; j++){
+//         console.log(`Dataset: ${turnNumber[j]} Turns`);
+//         // The trials (reports)
+//         for (var k = 0; k < reports.length; k++) {
+//             console.log(`Trial: ${k}`);
+//         }
+//         console.log('==============');
+//     }
+//     // Switching the boolean will be in this scope below this line
+
+// }
 
 // This will be used to move our data set to the front end. (The varables won't be 'board')
 module.exports = { board };
