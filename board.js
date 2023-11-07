@@ -49,4 +49,4 @@ const board =
 let boardIndex = 0;
 
 // boardIndex goes to simulaiton, board goes everywhere 
-module.exports = { board, boardIndex};
+module.exports = { board, boardIndex };

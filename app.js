@@ -12,12 +12,12 @@ const { board } = require('./board.js');
 const aDataSets = board.map(item => 
 `
     <tr style="background-color: rgba(150, 212, 212, 0.4)">
-    <!--- Property Name --->
+    <!--- Requesting Queries go here --->
+        <!--- Property Name --->
         <td>${item[0]}</td>
         <!--- Number of times landed --->
         <td>${item[1]}</td>
         <!--- Percentage of times landed --->
-        <!--- Property Name --->
         <td>${((item[1]/1000) * 100).toFixed(2)}</td>
         <td></td>
         <td></td>

@@ -1,4 +1,23 @@
 let { board, boardIndex } = require('./board.js');
+// May need to remove for more versitivity
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const csvWriter = createCsvWriter({
+    path: 'file.csv',
+    header: [
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
+
+const records = [
+    {property: 'Go', count: '100', percent: '0.10'}
+]
+
+csvWriter.writeRecords(records)
+    .then(() => {
+        console.log('...Done');
+    });
 
 // Variables needed to create the 80 sets of data
 // const reports = 10;
@@ -274,6 +293,7 @@ let turnNumber = [1000, 10000, 100000, 1000000];
 let placeholder = simulateTurn(turnNumber[0]);
 
 for (var i = 0; i < board.length; i++) {
+    // This is where I'll push the data
     console.log(placeholder[i][0], placeholder[i][1], (placeholder[i][1]/turnNumber[0] * 100).toFixed(2));
 }
 
