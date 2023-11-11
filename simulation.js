@@ -10,14 +10,11 @@ const csvWriter = createCsvWriter({
     ] 
 });
 
-const records = [
-    {property: 'Go', count: '100', percent: '0.10'}
-]
+// const records = [
+//     {property: 'Go', count: '100', percent: '0.10'}
+// ];
 
-csvWriter.writeRecords(records)
-    .then(() => {
-        console.log('...Done');
-    });
+// csvWriter.writeRecords(records);
 
 // Variables needed to create the 80 sets of data
 // const reports = 10;
@@ -291,12 +288,22 @@ function simulateTurn(turns) {
 let tests = ["A", "B"];
 let turnNumber = [1000, 10000, 100000, 1000000];
 let placeholder = simulateTurn(turnNumber[0]);
+const records = [
+    {property: 'Go', count: '100', percent: '0.10'}
+];
 
+// Use this loop to push the entries into the records array
 for (var i = 0; i < board.length; i++) {
     // This is where I'll push the data
-    console.log(placeholder[i][0], placeholder[i][1], (placeholder[i][1]/turnNumber[0] * 100).toFixed(2));
+    records.push({property: placeholder[i][0], count: placeholder[i][1], percent: (placeholder[i][1]/turnNumber[0] * 100).toFixed(2)});
 }
 
+
+// const records = [
+//     {property: 'Go', count: '100', percent: '0.10'}
+// ];
+
+csvWriter.writeRecords(records);
 // This is temporary. The for-loop using this will use a literal 10 instead
 // let reports = 10;
 
