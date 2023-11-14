@@ -2,7 +2,7 @@ let { board, eraseBoard, boardIndex } = require('./board.js');
 // May need to remove for more versitivity
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
-    path: 'file.csv',
+    path: 'a_1k.csv',
     header: [
         {id: 'table', title: 'TABLE'},
         {id: 'property', title: 'PROPERTY'},
@@ -204,30 +204,25 @@ let strategyB = false;
 let jailFree = false;
 
 const jail = () => {
-    if (strategyB && !jailFree){
+    if (strategyB && !jailFree)
+    {
         let jailCount = 0;
 
-        // Make sure you find a way to increment a turn if still in the do-while loop
         do
         {
-            // console.log(`Before Jail roll: ${jailCount}`);
-
             let jailDoubles = rollDice();
             jailCount++;
-            // console.log(`Jail Doubles: ${jailDoubles[1]}`); 
 
             if(jailDoubles[1]){
                 jailCount = 3;
             }
 
-            // console.log("Go To Jail");
             boardIndex = 10;
             board[boardIndex][1]++;
-            // console.log(`After Jail roll: ${jailCount}`); 
-            // console.log(`=============================`);
+
         } while (jailCount < 3)
-    } else {
-        // console.log("Go To Jail");
+    } else 
+    {
         boardIndex = 10;
         board[boardIndex][1]++;
     }

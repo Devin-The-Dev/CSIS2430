@@ -1,0 +1,401 @@
+TABLE,PROPERTY,COUNT,PERCENT
+1,Go,33,3.30
+1,Meditaranean Avenue,25,2.50
+1,Community Chest #1,21,2.10
+1,Baltic Avenue,34,3.40
+1,Income Tax,30,3.00
+1,Reading Railroad,35,3.50
+1,Oriental Avenue,33,3.30
+1,Chance #1,16,1.60
+1,Vermont Avenue,31,3.10
+1,Connecticut Avenue,18,1.80
+1,Jail,96,9.60
+1,St. Charles Place,32,3.20
+1,Electric Company,30,3.00
+1,States Avenue,36,3.60
+1,Virginia Avenue,17,1.70
+1,Pennsylvania Railroad,23,2.30
+1,St. James Place,34,3.40
+1,Community Chest #2,34,3.40
+1,Tennessee Avenue,27,2.70
+1,New York Avenue,39,3.90
+1,Free Parking,25,2.50
+1,Kentucky Avenue,39,3.90
+1,Chance #2,13,1.30
+1,Indiana Avenue,30,3.00
+1,Illinois Avenue,50,5.00
+1,B. & O. Railroad,26,2.60
+1,Atlantic Avenue,28,2.80
+1,Ventnor Avenue,30,3.00
+1,Water Works,43,4.30
+1,Marvin Gardens,39,3.90
+1,Go To Jail,17,1.70
+1,Pacific Avenue,24,2.40
+1,North Carolina Avenue,32,3.20
+1,Community Chest #3,34,3.40
+1,Pennsylvania Avenue,27,2.70
+1,Short Line Railroad,46,4.60
+1,Chance #3,14,1.40
+1,Park Place,27,2.70
+1,Luxury Tax,30,3.00
+1,Boardwalk,47,4.70
+2,Go,39,3.90
+2,Meditaranean Avenue,33,3.30
+2,Community Chest #1,27,2.70
+2,Baltic Avenue,22,2.20
+2,Income Tax,21,2.10
+2,Reading Railroad,42,4.20
+2,Oriental Avenue,28,2.80
+2,Chance #1,10,1.00
+2,Vermont Avenue,36,3.60
+2,Connecticut Avenue,31,3.10
+2,Jail,133,13.30
+2,St. Charles Place,27,2.70
+2,Electric Company,27,2.70
+2,States Avenue,17,1.70
+2,Virginia Avenue,40,4.00
+2,Pennsylvania Railroad,30,3.00
+2,St. James Place,30,3.00
+2,Community Chest #2,31,3.10
+2,Tennessee Avenue,42,4.20
+2,New York Avenue,40,4.00
+2,Free Parking,30,3.00
+2,Kentucky Avenue,31,3.10
+2,Chance #2,14,1.40
+2,Indiana Avenue,30,3.00
+2,Illinois Avenue,35,3.50
+2,B. & O. Railroad,33,3.30
+2,Atlantic Avenue,28,2.80
+2,Ventnor Avenue,39,3.90
+2,Water Works,48,4.80
+2,Marvin Gardens,31,3.10
+2,Go To Jail,31,3.10
+2,Pacific Avenue,33,3.30
+2,North Carolina Avenue,20,2.00
+2,Community Chest #3,29,2.90
+2,Pennsylvania Avenue,26,2.60
+2,Short Line Railroad,51,5.10
+2,Chance #3,15,1.50
+2,Park Place,26,2.60
+2,Luxury Tax,26,2.60
+2,Boardwalk,33,3.30
+3,Go,39,3.90
+3,Meditaranean Avenue,28,2.80
+3,Community Chest #1,22,2.20
+3,Baltic Avenue,25,2.50
+3,Income Tax,22,2.20
+3,Reading Railroad,34,3.40
+3,Oriental Avenue,27,2.70
+3,Chance #1,9,0.90
+3,Vermont Avenue,29,2.90
+3,Connecticut Avenue,21,2.10
+3,Jail,145,14.50
+3,St. Charles Place,27,2.70
+3,Electric Company,23,2.30
+3,States Avenue,25,2.50
+3,Virginia Avenue,27,2.70
+3,Pennsylvania Railroad,30,3.00
+3,St. James Place,32,3.20
+3,Community Chest #2,40,4.00
+3,Tennessee Avenue,27,2.70
+3,New York Avenue,55,5.50
+3,Free Parking,35,3.50
+3,Kentucky Avenue,30,3.00
+3,Chance #2,17,1.70
+3,Indiana Avenue,29,2.90
+3,Illinois Avenue,36,3.60
+3,B. & O. Railroad,38,3.80
+3,Atlantic Avenue,30,3.00
+3,Ventnor Avenue,32,3.20
+3,Water Works,44,4.40
+3,Marvin Gardens,29,2.90
+3,Go To Jail,38,3.80
+3,Pacific Avenue,28,2.80
+3,North Carolina Avenue,19,1.90
+3,Community Chest #3,28,2.80
+3,Pennsylvania Avenue,28,2.80
+3,Short Line Railroad,37,3.70
+3,Chance #3,8,0.80
+3,Park Place,30,3.00
+3,Luxury Tax,28,2.80
+3,Boardwalk,35,3.50
+4,Go,35,3.50
+4,Meditaranean Avenue,34,3.40
+4,Community Chest #1,25,2.50
+4,Baltic Avenue,28,2.80
+4,Income Tax,36,3.60
+4,Reading Railroad,35,3.50
+4,Oriental Avenue,29,2.90
+4,Chance #1,12,1.20
+4,Vermont Avenue,20,2.00
+4,Connecticut Avenue,30,3.00
+4,Jail,124,12.40
+4,St. Charles Place,35,3.50
+4,Electric Company,16,1.60
+4,States Avenue,30,3.00
+4,Virginia Avenue,29,2.90
+4,Pennsylvania Railroad,27,2.70
+4,St. James Place,31,3.10
+4,Community Chest #2,32,3.20
+4,Tennessee Avenue,40,4.00
+4,New York Avenue,38,3.80
+4,Free Parking,30,3.00
+4,Kentucky Avenue,32,3.20
+4,Chance #2,14,1.40
+4,Indiana Avenue,27,2.70
+4,Illinois Avenue,47,4.70
+4,B. & O. Railroad,32,3.20
+4,Atlantic Avenue,35,3.50
+4,Ventnor Avenue,30,3.00
+4,Water Works,38,3.80
+4,Marvin Gardens,31,3.10
+4,Go To Jail,29,2.90
+4,Pacific Avenue,38,3.80
+4,North Carolina Avenue,22,2.20
+4,Community Chest #3,25,2.50
+4,Pennsylvania Avenue,29,2.90
+4,Short Line Railroad,41,4.10
+4,Chance #3,11,1.10
+4,Park Place,28,2.80
+4,Luxury Tax,29,2.90
+4,Boardwalk,40,4.00
+5,Go,43,4.30
+5,Meditaranean Avenue,22,2.20
+5,Community Chest #1,24,2.40
+5,Baltic Avenue,25,2.50
+5,Income Tax,41,4.10
+5,Reading Railroad,45,4.50
+5,Oriental Avenue,20,2.00
+5,Chance #1,11,1.10
+5,Vermont Avenue,22,2.20
+5,Connecticut Avenue,27,2.70
+5,Jail,125,12.50
+5,St. Charles Place,21,2.10
+5,Electric Company,31,3.10
+5,States Avenue,33,3.30
+5,Virginia Avenue,26,2.60
+5,Pennsylvania Railroad,30,3.00
+5,St. James Place,30,3.00
+5,Community Chest #2,37,3.70
+5,Tennessee Avenue,37,3.70
+5,New York Avenue,38,3.80
+5,Free Parking,25,2.50
+5,Kentucky Avenue,35,3.50
+5,Chance #2,20,2.00
+5,Indiana Avenue,34,3.40
+5,Illinois Avenue,51,5.10
+5,B. & O. Railroad,33,3.30
+5,Atlantic Avenue,22,2.20
+5,Ventnor Avenue,30,3.00
+5,Water Works,49,4.90
+5,Marvin Gardens,24,2.40
+5,Go To Jail,30,3.00
+5,Pacific Avenue,26,2.60
+5,North Carolina Avenue,32,3.20
+5,Community Chest #3,30,3.00
+5,Pennsylvania Avenue,37,3.70
+5,Short Line Railroad,53,5.30
+5,Chance #3,15,1.50
+5,Park Place,28,2.80
+5,Luxury Tax,18,1.80
+5,Boardwalk,32,3.20
+6,Go,37,3.70
+6,Meditaranean Avenue,18,1.80
+6,Community Chest #1,26,2.60
+6,Baltic Avenue,29,2.90
+6,Income Tax,30,3.00
+6,Reading Railroad,42,4.20
+6,Oriental Avenue,29,2.90
+6,Chance #1,6,0.60
+6,Vermont Avenue,32,3.20
+6,Connecticut Avenue,35,3.50
+6,Jail,137,13.70
+6,St. Charles Place,27,2.70
+6,Electric Company,24,2.40
+6,States Avenue,25,2.50
+6,Virginia Avenue,41,4.10
+6,Pennsylvania Railroad,29,2.90
+6,St. James Place,33,3.30
+6,Community Chest #2,27,2.70
+6,Tennessee Avenue,40,4.00
+6,New York Avenue,31,3.10
+6,Free Parking,35,3.50
+6,Kentucky Avenue,34,3.40
+6,Chance #2,16,1.60
+6,Indiana Avenue,36,3.60
+6,Illinois Avenue,40,4.00
+6,B. & O. Railroad,29,2.90
+6,Atlantic Avenue,35,3.50
+6,Ventnor Avenue,36,3.60
+6,Water Works,33,3.30
+6,Marvin Gardens,23,2.30
+6,Go To Jail,37,3.70
+6,Pacific Avenue,32,3.20
+6,North Carolina Avenue,28,2.80
+6,Community Chest #3,33,3.30
+6,Pennsylvania Avenue,27,2.70
+6,Short Line Railroad,48,4.80
+6,Chance #3,11,1.10
+6,Park Place,20,2.00
+6,Luxury Tax,32,3.20
+6,Boardwalk,31,3.10
+7,Go,44,4.40
+7,Meditaranean Avenue,27,2.70
+7,Community Chest #1,29,2.90
+7,Baltic Avenue,27,2.70
+7,Income Tax,26,2.60
+7,Reading Railroad,43,4.30
+7,Oriental Avenue,25,2.50
+7,Chance #1,11,1.10
+7,Vermont Avenue,30,3.00
+7,Connecticut Avenue,28,2.80
+7,Jail,109,10.90
+7,St. Charles Place,37,3.70
+7,Electric Company,26,2.60
+7,States Avenue,26,2.60
+7,Virginia Avenue,30,3.00
+7,Pennsylvania Railroad,27,2.70
+7,St. James Place,25,2.50
+7,Community Chest #2,32,3.20
+7,Tennessee Avenue,40,4.00
+7,New York Avenue,37,3.70
+7,Free Parking,35,3.50
+7,Kentucky Avenue,31,3.10
+7,Chance #2,13,1.30
+7,Indiana Avenue,32,3.20
+7,Illinois Avenue,44,4.40
+7,B. & O. Railroad,25,2.50
+7,Atlantic Avenue,29,2.90
+7,Ventnor Avenue,31,3.10
+7,Water Works,44,4.40
+7,Marvin Gardens,28,2.80
+7,Go To Jail,31,3.10
+7,Pacific Avenue,31,3.10
+7,North Carolina Avenue,27,2.70
+7,Community Chest #3,33,3.30
+7,Pennsylvania Avenue,20,2.00
+7,Short Line Railroad,49,4.90
+7,Chance #3,14,1.40
+7,Park Place,29,2.90
+7,Luxury Tax,24,2.40
+7,Boardwalk,24,2.40
+8,Go,32,3.20
+8,Meditaranean Avenue,30,3.00
+8,Community Chest #1,34,3.40
+8,Baltic Avenue,26,2.60
+8,Income Tax,30,3.00
+8,Reading Railroad,31,3.10
+8,Oriental Avenue,14,1.40
+8,Chance #1,9,0.90
+8,Vermont Avenue,31,3.10
+8,Connecticut Avenue,32,3.20
+8,Jail,134,13.40
+8,St. Charles Place,23,2.30
+8,Electric Company,22,2.20
+8,States Avenue,29,2.90
+8,Virginia Avenue,28,2.80
+8,Pennsylvania Railroad,26,2.60
+8,St. James Place,36,3.60
+8,Community Chest #2,34,3.40
+8,Tennessee Avenue,37,3.70
+8,New York Avenue,37,3.70
+8,Free Parking,43,4.30
+8,Kentucky Avenue,29,2.90
+8,Chance #2,16,1.60
+8,Indiana Avenue,24,2.40
+8,Illinois Avenue,45,4.50
+8,B. & O. Railroad,33,3.30
+8,Atlantic Avenue,33,3.30
+8,Ventnor Avenue,39,3.90
+8,Water Works,34,3.40
+8,Marvin Gardens,21,2.10
+8,Go To Jail,40,4.00
+8,Pacific Avenue,29,2.90
+8,North Carolina Avenue,21,2.10
+8,Community Chest #3,25,2.50
+8,Pennsylvania Avenue,36,3.60
+8,Short Line Railroad,49,4.90
+8,Chance #3,10,1.00
+8,Park Place,30,3.00
+8,Luxury Tax,20,2.00
+8,Boardwalk,34,3.40
+9,Go,37,3.70
+9,Meditaranean Avenue,30,3.00
+9,Community Chest #1,27,2.70
+9,Baltic Avenue,20,2.00
+9,Income Tax,24,2.40
+9,Reading Railroad,41,4.10
+9,Oriental Avenue,32,3.20
+9,Chance #1,11,1.10
+9,Vermont Avenue,26,2.60
+9,Connecticut Avenue,28,2.80
+9,Jail,96,9.60
+9,St. Charles Place,30,3.00
+9,Electric Company,27,2.70
+9,States Avenue,25,2.50
+9,Virginia Avenue,21,2.10
+9,Pennsylvania Railroad,29,2.90
+9,St. James Place,32,3.20
+9,Community Chest #2,36,3.60
+9,Tennessee Avenue,29,2.90
+9,New York Avenue,45,4.50
+9,Free Parking,28,2.80
+9,Kentucky Avenue,37,3.70
+9,Chance #2,12,1.20
+9,Indiana Avenue,25,2.50
+9,Illinois Avenue,33,3.30
+9,B. & O. Railroad,40,4.00
+9,Atlantic Avenue,27,2.70
+9,Ventnor Avenue,22,2.20
+9,Water Works,53,5.30
+9,Marvin Gardens,33,3.30
+9,Go To Jail,23,2.30
+9,Pacific Avenue,28,2.80
+9,North Carolina Avenue,31,3.10
+9,Community Chest #3,36,3.60
+9,Pennsylvania Avenue,28,2.80
+9,Short Line Railroad,49,4.90
+9,Chance #3,10,1.00
+9,Park Place,24,2.40
+9,Luxury Tax,22,2.20
+9,Boardwalk,48,4.80
+10,Go,41,4.10
+10,Meditaranean Avenue,25,2.50
+10,Community Chest #1,32,3.20
+10,Baltic Avenue,24,2.40
+10,Income Tax,27,2.70
+10,Reading Railroad,42,4.20
+10,Oriental Avenue,22,2.20
+10,Chance #1,16,1.60
+10,Vermont Avenue,26,2.60
+10,Connecticut Avenue,27,2.70
+10,Jail,132,13.20
+10,St. Charles Place,23,2.30
+10,Electric Company,42,4.20
+10,States Avenue,19,1.90
+10,Virginia Avenue,21,2.10
+10,Pennsylvania Railroad,33,3.30
+10,St. James Place,30,3.00
+10,Community Chest #2,30,3.00
+10,Tennessee Avenue,24,2.40
+10,New York Avenue,49,4.90
+10,Free Parking,40,4.00
+10,Kentucky Avenue,26,2.60
+10,Chance #2,10,1.00
+10,Indiana Avenue,28,2.80
+10,Illinois Avenue,49,4.90
+10,B. & O. Railroad,35,3.50
+10,Atlantic Avenue,39,3.90
+10,Ventnor Avenue,25,2.50
+10,Water Works,41,4.10
+10,Marvin Gardens,29,2.90
+10,Go To Jail,34,3.40
+10,Pacific Avenue,39,3.90
+10,North Carolina Avenue,22,2.20
+10,Community Chest #3,34,3.40
+10,Pennsylvania Avenue,30,3.00
+10,Short Line Railroad,47,4.70
+10,Chance #3,12,1.20
+10,Park Place,23,2.30
+10,Luxury Tax,28,2.80
+10,Boardwalk,33,3.30
