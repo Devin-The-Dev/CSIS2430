@@ -1,7 +1,7 @@
 let { board, eraseBoard, boardIndex } = require('./board.js');
 // May need to remove for more versitivity
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-const csvWriter = createCsvWriter({
+let csvWriter = createCsvWriter({
     path: 'a_1k.csv',
     header: [
         {id: 'table', title: 'TABLE'},
@@ -270,45 +270,145 @@ function simulateTurn(turns, initialBoard) {
 }
 
 const pushData = (tableNum, turnNum) => {
-    let data = simulateTurn(turnNum[0]);
+    let data = simulateTurn(turnNum);
     console.log(data);
     for (var i = 0; i < board.length; i++) {
         // This is where I'll push the data
-        console.log(tableNum, data[i][0], data[i][1], (data[i][1]/turnNum[0] * 100).toFixed(2));
-        records.push({table: tableNum, property: data[i][0], count: data[i][1], percent: (data[i][1]/turnNum[0] * 100).toFixed(2)});
+        console.log(tableNum, data[i][0], data[i][1], (data[i][1]/turnNum * 100).toFixed(2));
+        records.push({table: tableNum, property: data[i][0], count: data[i][1], percent: (data[i][1]/turnNum * 100).toFixed(2)});
     }
 
     eraseBoard();
 }
 
-const records = [];
-let tests = ["A", "B"];
+let records = [];
 let turnNumber = [1000, 10000, 100000, 1000000];
 
+// Strategy A - 1k Turns
 for(var i = 0; i < 10; i++){
-    pushData(i + 1, turnNumber);
+    pushData(i + 1, turnNumber[0]);
     csvWriter.writeRecords(records);
 }
 
-// This is temporary. The for-loop using this will use a literal 10 instead
-// let reports = 10;
+// Strategy A - 10k Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'a_10k.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
 
-// // Strategies A and B
-// for(var i = 0; i < tests.length; i++){
-//     console.log(`Strategy: ${tests[i]}`);
-//     console.log('--------------');
-//     // The datasets (turns)
-//     for (var j = 0; j < turnNumber.length; j++){
-//         console.log(`Dataset: ${turnNumber[j]} Turns`);
-//         // The trials (reports)
-//         for (var k = 0; k < reports.length; k++) {
-//             console.log(`Trial: ${k}`);
-//         }
-//         console.log('==============');
-//     }
-//     // Switching the boolean will be in this scope below this line
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[1]);
+    csvWriter.writeRecords(records);
+}
 
-// }
+// Strategy A - 100k Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'a_100k.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
 
-// This will be used to move our data set to the front end. (The varables won't be 'board')
-// module.exports = { board };
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[2]);
+    csvWriter.writeRecords(records);
+}
+
+// Strategy A - 1m Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'a_1m.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
+
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[3]);
+    csvWriter.writeRecords(records);
+}
+
+///////////////////////////////////////////////////////////
+
+strategyB = true;
+
+// Strategy B - 1k Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'b_1k.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
+
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[0]);
+    csvWriter.writeRecords(records);
+}
+
+// Strategy A - 10k Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'b_10k.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
+
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[1]);
+    csvWriter.writeRecords(records);
+}
+
+// Strategy A - 100k Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'b_100k.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
+
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[2]);
+    csvWriter.writeRecords(records);
+}
+
+// Strategy A - 1m Turns
+records = [];
+csvWriter = createCsvWriter({
+    path: 'b_1m.csv',
+    header: [
+        {id: 'table', title: 'TABLE'},
+        {id: 'property', title: 'PROPERTY'},
+        {id: 'count', title: 'COUNT'},
+        {id: 'percent', title: 'PERCENT'}
+    ] 
+});
+
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber[3]);
+    csvWriter.writeRecords(records);
+}
