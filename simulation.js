@@ -1,20 +1,15 @@
-let { board, boardIndex } = require('./board.js');
+let { board, eraseBoard, boardIndex } = require('./board.js');
 // May need to remove for more versitivity
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
     path: 'file.csv',
     header: [
+        {id: 'table', title: 'TABLE'},
         {id: 'property', title: 'PROPERTY'},
         {id: 'count', title: 'COUNT'},
         {id: 'percent', title: 'PERCENT'}
     ] 
 });
-
-// const records = [
-//     {property: 'Go', count: '100', percent: '0.10'}
-// ];
-
-// csvWriter.writeRecords(records);
 
 // Variables needed to create the 80 sets of data
 // const reports = 10;
@@ -239,7 +234,7 @@ const jail = () => {
 };
 // ======================================================================================================================================================
 // turn.js
-function simulateTurn(turns) {
+function simulateTurn(turns, initialBoard) {
     for (var i = 0; i < turns; i++ ){
         // This variable isn't updating
         let dice = rollDice();
@@ -270,40 +265,36 @@ function simulateTurn(turns) {
                 drawCard(shuffledChance, chance);
             }
 
-            // console.log(`Turn ${i}: ${board[boardIndex][0]}`);
-
-            // This will update out dice outside the d0-while loop
+            // This will update our dice outside the do-while loop
             dice = rollDice();
         } while (dice[1])
     }
-
-    // for (var i = 0; i < board.length; i++){
-    //     console.log(board[i][0], board[i][1], (board[i][1]/turns * 100).toFixed(2));
-    // }
 
     return board;
 
 }
 
-let tests = ["A", "B"];
-let turnNumber = [1000, 10000, 100000, 1000000];
-let placeholder = simulateTurn(turnNumber[0]);
-const records = [
-    {property: 'Go', count: '100', percent: '0.10'}
-];
+const pushData = (tableNum, turnNum) => {
+    let data = simulateTurn(turnNum[0]);
+    console.log(data);
+    for (var i = 0; i < board.length; i++) {
+        // This is where I'll push the data
+        console.log(tableNum, data[i][0], data[i][1], (data[i][1]/turnNum[0] * 100).toFixed(2));
+        records.push({table: tableNum, property: data[i][0], count: data[i][1], percent: (data[i][1]/turnNum[0] * 100).toFixed(2)});
+    }
 
-// Use this loop to push the entries into the records array
-for (var i = 0; i < board.length; i++) {
-    // This is where I'll push the data
-    records.push({property: placeholder[i][0], count: placeholder[i][1], percent: (placeholder[i][1]/turnNumber[0] * 100).toFixed(2)});
+    eraseBoard();
 }
 
+const records = [];
+let tests = ["A", "B"];
+let turnNumber = [1000, 10000, 100000, 1000000];
 
-// const records = [
-//     {property: 'Go', count: '100', percent: '0.10'}
-// ];
+for(var i = 0; i < 10; i++){
+    pushData(i + 1, turnNumber);
+    csvWriter.writeRecords(records);
+}
 
-csvWriter.writeRecords(records);
 // This is temporary. The for-loop using this will use a literal 10 instead
 // let reports = 10;
 
@@ -325,4 +316,4 @@ csvWriter.writeRecords(records);
 // }
 
 // This will be used to move our data set to the front end. (The varables won't be 'board')
-module.exports = { board };
+// module.exports = { board };

@@ -46,7 +46,14 @@ const board =
     ["Boardwalk", 0]
 ];
 
+let eraseBoard = () => {
+    for(var i = 0; i < board.length; i++) {
+        board[i][1] = 0;
+    }
+}
+eraseBoard();
+
 let boardIndex = 0;
 
 // boardIndex goes to simulaiton, board goes everywhere 
-module.exports = { board, boardIndex };
+module.exports = { board, eraseBoard, boardIndex };
