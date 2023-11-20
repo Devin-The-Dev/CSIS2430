@@ -63,10 +63,6 @@
             section {
                 display: inline-block;
             }
-
-            td:nth-child(40n) {
-                border-bottom: 2px solid black;
-            }
         </style>
         <body>
             <h1>Monopoly Stats</h1>
