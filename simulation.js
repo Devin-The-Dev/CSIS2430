@@ -362,7 +362,7 @@ for(var i = 0; i < 10; i++){
     csvWriter.writeRecords(records);
 }
 
-// Strategy A - 10k Turns
+// Strategy B - 10k Turns
 records = [];
 csvWriter = createCsvWriter({
     path: 'b_10k.csv',
@@ -379,7 +379,7 @@ for(var i = 0; i < 10; i++){
     csvWriter.writeRecords(records);
 }
 
-// Strategy A - 100k Turns
+// Strategy B - 100k Turns
 records = [];
 csvWriter = createCsvWriter({
     path: 'b_100k.csv',
@@ -396,7 +396,7 @@ for(var i = 0; i < 10; i++){
     csvWriter.writeRecords(records);
 }
 
-// Strategy A - 1m Turns
+// Strategy B - 1m Turns
 records = [];
 csvWriter = createCsvWriter({
     path: 'b_1m.csv',
