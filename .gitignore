@@ -1,1 +1,2 @@
+# Ignore files when pushing to GitHub
 node_modules/

@@ -1,7 +1,5 @@
 // ======================================================================================================================================================
-// board.js
 // All the manipulation outputs to here
-// board[entry][name or number]
 const board = 
 [
     ["Go", 0],
@@ -46,6 +44,7 @@ const board =
     ["Boardwalk", 0]
 ];
 
+// Erases board array for trial in the data set
 let eraseBoard = () => {
     for(var i = 0; i < board.length; i++) {
         board[i][1] = 0;
@@ -53,6 +52,7 @@ let eraseBoard = () => {
 }
 eraseBoard();
 
+// This represents our token we use to move around the board
 let boardIndex = 0;
 
 // boardIndex goes to simulaiton, board goes everywhere 

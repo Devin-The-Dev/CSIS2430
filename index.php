@@ -1,7 +1,12 @@
 <?php
-    // Function to read a specific column from a CSV file
-    // To make this more dynamic, move $rowNumber up to a parameter, have that and $maxRows undefined. When calling the function, define those perameters (arguments)
-    function readTable($csv, $columnIndex = 1, $tableHeight = 400) {
+    // Function to read specific columns from a CSV file
+    // Parameters:
+    // $csv = file path
+    // $columnIndex = column number
+    // $tableHeight = height of dataset in the file
+    function readTable($csv, $columnIndex = 1, $tableHeight = 400) 
+    {
+        // Variables to read the file, row by row
         $file = fopen($csv, 'r');
         $rowNumber = 0;
 
@@ -12,23 +17,32 @@
             <th>Count</th>
             <th>Percentage</th>
             </tr>";
-
-        while (($set = fgetcsv($file)) !== false) {
+        
+        // Read until the end of the file 
+        while (($set = fgetcsv($file)) !== false) 
+        {
+            // Used ot move down a row
             $rowNumber++;
             
+            // Allows us to skip the headers row
             if ($rowNumber <= 1) {
-                continue; // Skip the first row (headers)
+                continue; 
             }
 
-            // Ok, so all the properties are displayed with no repeats, but not in the right order, and the numbers aren't matching with their properties
+            // Allows us to read certain cells in each row
             if (isset($set[$columnIndex])) {
+                // Variables for:
+                // Trial number
                 $setNum = $set[$columnIndex - 1];
+                // Property names
                 $properties = $set[$columnIndex];
+                // Number of times the proprty was landed on
                 $count = $set[$columnIndex + 1];
+                // The percentage the proprty was landed on
                 $percentage = $set[$columnIndex + 2];
 
 
-                // I'm just going to call the functions here... or arrays
+                // Formating the numbers for the webpage
                 echo 
                 "<tr>
                     <td class = " . $setNum . ">" . $setNum . "</td>
@@ -36,15 +50,11 @@
                     <td>" . $count . "</td>
                     <td>" . $percentage . "</td>
                 </tr>" . PHP_EOL;
-
-                // This needs to be inside so we can hit the rows after the first 40
-                if ($rowNumber >= $tableHeight + 1) {
-                    break; // Break the loop after reading the desired number of rows
-                }
             }
 
         }
-
+        
+        // Close the file after reaching its end
         fclose($file);
     }
 ?>
@@ -56,6 +66,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Monopoly Stats</title>
         </head>
+        <!-- Simple Styling -->
         <style>
             table, th, td {
                 border: 1px solid black;
@@ -66,6 +77,7 @@
         </style>
         <body>
             <h1>Monopoly Stats</h1>
+            <!-- Datasets for Strategy A -->
             <section>
                 <h2>Strategy A</h2>
                 <table>
@@ -73,7 +85,6 @@
                         <th colspan="4">1,000 Turns</th>
                     </thead>
                     <?php
-                        // echo headerRow();
                         echo readTable('a_1k.csv');
                     ?>
                 </table>
@@ -102,6 +113,7 @@
                     ?>
                 </table>
             </section>
+            <!-- Datasets for Strategy B -->
             <section>
                 <h2>Strategy B</h2>
                 <table>

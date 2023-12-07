@@ -1,5 +1,7 @@
+// Variables needed to populate the datasets
 let { board, eraseBoard, boardIndex } = require('./board.js');
-// May need to remove for more versitivity
+// Variables used to Create and write to a CSV file
+// It'll start with a file named 'a_1k.csv' (Strategy A - 1,000 turns). After that dataset is complete, it will start over again with a different CSV file (rinse and repeat). 
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 let csvWriter = createCsvWriter({
     path: 'a_1k.csv',
@@ -11,11 +13,8 @@ let csvWriter = createCsvWriter({
     ] 
 });
 
-// Variables needed to create the 80 sets of data
-// const reports = 10;
-// const turns = [1000, 10000, 100000, 1000000];
 // ======================================================================================================================================================
-// cards.js
+// Decks for Community Chest and Chance
 const communityChest = 
 [
     "Advance to Go (Collect $200)", //Movement
@@ -60,7 +59,7 @@ const chance =
 // Shuffling the Community Chest/Chance decks
 const shuffle = (deck) =>
 {
-    // Copy of Community Chest/Chance decks
+    // A copy of Community Chest/Chance decks prevents loosing cards from the master deck (when reshuffling is required)
     let CopyDeck = [...deck];
     let shuffledDeck = [];
 
@@ -70,7 +69,7 @@ const shuffle = (deck) =>
         let index = Math.floor(Math.random() * CopyDeck.length);
         // Same index is pushed to the end of our shuffled deck
         shuffledDeck.push(CopyDeck[index]);
-        // We're not going to use filter() because the Chance cards have a duplicate
+        // We're not going to use filter() because the Chance cards have duplicates
         // According to the filter() documentation, it'll remove values that are of equal value
         CopyDeck.splice(index, 1);
     }
@@ -78,13 +77,14 @@ const shuffle = (deck) =>
     return shuffledDeck;
 }
 
+// Used to move us to the nearest railroad/utility
 const nearest = (arr, bIndex) => {
     // Value set to 40 for setting the minimum value later
     let min = 40;
-    // Possible nearest railroad
+    // Possible nearest railroad/utility
     let placement;
 
-    // A loop to locate nearest railroad
+    // A loop to locate possible nearest railroad/utility, eventually the nearest railroad/utility
     for (var i = 0; i < 4; i++){
         if (Math.abs(bIndex - arr[i] < min)){
             min = Math.abs(bIndex - arr[i])
@@ -92,9 +92,11 @@ const nearest = (arr, bIndex) => {
         }
     }
 
+    // The actual nearest railroad/utility
     return placement;
 }
 
+// Draw cards from a shuffled deck
 const drawCard = (deck, masterDeck) => {
     
     // In case a deck is empty
@@ -104,10 +106,11 @@ const drawCard = (deck, masterDeck) => {
         deck = shuffle(deck);
     }
 
+    // In case we draw nearest railroad or utility
     let rr = [5, 15, 25, 35];
     let utilities = [12, 28];
 
-    // Switch statement for all cards results
+    // Switch statement for all cards results (Just the ones that require us to move; Banks don't exist in this simulation)
     switch (deck.pop()) 
     {
         case "Advance to Boardwalk":
@@ -168,11 +171,12 @@ const drawCard = (deck, masterDeck) => {
     }
 }
 
+// Shuffled decks to draw cards from
 let shuffledCC = shuffle(communityChest);
 let shuffledChance = shuffle(chance);
 
 // ======================================================================================================================================================
-// dice.js
+// Variable to keep track of how many times doubles we roll in a row
 let doublesCount = 0;
 
 // Rolling the dice
@@ -193,26 +197,29 @@ const rollDice = () => {
 
 // Move token along board
 const move = (roll, index) => {
-    // index isn't saved outside the scope
     boardIndex = (index + roll) % board.length;
     board[index][1]++;
 }
 // ======================================================================================================================================================
-// jail.js
-// 'Get Out of Jail Free' cards only apply to Strategy B
+// Variables used when we get to Strategy B 
 let strategyB = false;
 let jailFree = false;
 
+// Function used to send us to jail
 const jail = () => {
+    // For Strategy B
     if (strategyB && !jailFree)
     {
+        // How long we've been in jail
         let jailCount = 0;
 
+        // Roll until we get a double or we've rolled 3 times
         do
         {
             let jailDoubles = rollDice();
             jailCount++;
 
+            // If we get a double, it'll break the loop early
             if(jailDoubles[1]){
                 jailCount = 3;
             }
@@ -222,39 +229,42 @@ const jail = () => {
 
         } while (jailCount < 3)
     } else 
+    // For Strategy A
     {
         boardIndex = 10;
         board[boardIndex][1]++;
     }
 };
 // ======================================================================================================================================================
-// turn.js
-function simulateTurn(turns, initialBoard) {
+// Bringing everything together
+// What to do during each turn
+
+function simulateTurn(turns) { // Parameter is the number of turns of current dataset
     for (var i = 0; i < turns; i++ ){
-        // This variable isn't updating
+        // Returns the sum of two dice, and if we rolled a double
         let dice = rollDice();
 
         do
         {
+            // Rolling/movement condition for going to jail
             if  ( doublesCount === 3 || boardIndex === 30 )
             {
                 if(boardIndex === 30){
                     board[boardIndex][1]++;
                 }
-                // console.log("*3 doubles*");
                 jail();
             } 
             else 
+            // Otherwise, move to designated spot
             {
                 move(dice[0], boardIndex);
             }
 
-            // If landed on Community Chest, draw a card from that deck
+            // Conditions for landing on Community chest or Chance
             if (boardIndex === 2 || boardIndex === 17, boardIndex === 33)
             {
                 drawCard(shuffledCC, communityChest);
             } 
-            // If landed on Chance, draw a card from that deck
             else if (boardIndex === 7 || boardIndex === 22 || boardIndex === 36)
             {
                 drawCard(shuffledChance, chance);
@@ -262,26 +272,34 @@ function simulateTurn(turns, initialBoard) {
 
             // This will update our dice outside the do-while loop
             dice = rollDice();
-        } while (dice[1])
+        } while (dice[1]) //If rolling a double is true, we roll again
     }
 
+    // Updates board for current dataset
     return board;
 
 }
 
+// Upon end of number of turns (dataset), everything is pushed to the associated csv file
 const pushData = (tableNum, turnNum) => {
+    // Variable used to populate dataset
     let data = simulateTurn(turnNum);
     console.log(data);
+
+    // Goes through the entire array. Each element is equal to a line in the csv file
     for (var i = 0; i < board.length; i++) {
-        // This is where I'll push the data
         console.log(tableNum, data[i][0], data[i][1], (data[i][1]/turnNum * 100).toFixed(2));
+        // Pushing the data to the associated csv file
         records.push({table: tableNum, property: data[i][0], count: data[i][1], percent: (data[i][1]/turnNum * 100).toFixed(2)});
     }
 
+    // Erasing the board array to be ready for the next dataset
     eraseBoard();
 }
 
+// Empty array to store dataset awaiting to be pushed
 let records = [];
+// Array for number of turns to be applied per data set
 let turnNumber = [1000, 10000, 100000, 1000000];
 
 // Strategy A - 1k Turns
@@ -291,6 +309,7 @@ for(var i = 0; i < 10; i++){
 }
 
 // Strategy A - 10k Turns
+// Very similar from 'a_1k.csv' only difference is the file path (the dataset)
 records = [];
 csvWriter = createCsvWriter({
     path: 'a_10k.csv',
@@ -343,6 +362,7 @@ for(var i = 0; i < 10; i++){
 
 ///////////////////////////////////////////////////////////
 
+// Used to generate the datasets for Strategy B
 strategyB = true;
 
 // Strategy B - 1k Turns
