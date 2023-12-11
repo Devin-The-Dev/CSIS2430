@@ -25,12 +25,14 @@
             $rowNumber++;
             
             // Allows us to skip the headers row
-            if ($rowNumber <= 1) {
+            if ($rowNumber <= 1) 
+            {
                 continue; 
             }
 
             // Allows us to read certain cells in each row
-            if (isset($set[$columnIndex])) {
+            if (isset($set[$columnIndex])) 
+            {
                 // Variables for:
                 // Trial number
                 $setNum = $set[$columnIndex - 1];
@@ -68,10 +70,12 @@
         </head>
         <!-- Simple Styling -->
         <style>
-            table, th, td {
+            table, th, td 
+            {
                 border: 1px solid black;
             }
-            section {
+            section 
+            {
                 display: inline-block;
             }
         </style>

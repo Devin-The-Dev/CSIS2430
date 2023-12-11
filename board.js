@@ -45,8 +45,10 @@ const board =
 ];
 
 // Erases board array for trial in the data set
-let eraseBoard = () => {
-    for(var i = 0; i < board.length; i++) {
+let eraseBoard = () => 
+{
+    for(var i = 0; i < board.length; i++) 
+    {
         board[i][1] = 0;
     }
 }
