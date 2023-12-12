@@ -1,5 +1,5 @@
 // ======================================================================================================================================================
-// All the manipulation outputs to here
+// Array of all properties with their counts starting at zero
 const board = 
 [
     ["Go", 0],
@@ -44,7 +44,7 @@ const board =
     ["Boardwalk", 0]
 ];
 
-// Erases board array for trial in the data set
+// Erases board array to begin the next trial
 let eraseBoard = () => 
 {
     for(var i = 0; i < board.length; i++) 
@@ -57,5 +57,4 @@ eraseBoard();
 // This represents our token we use to move around the board
 let boardIndex = 0;
 
-// boardIndex goes to simulaiton, board goes everywhere 
 module.exports = { board, eraseBoard, boardIndex };
